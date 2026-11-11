@@ -1,0 +1,5 @@
+screenshots/
+.claude/
+*.tmp
+Thumbs.db
+desktop.ini

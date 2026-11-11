@@ -1,0 +1,85 @@
+/* =========================================================
+   SESONGTEMA – Visit Vrådal
+   ---------------------------------------------------------
+   Hele nettstedet styres av én attributt på <html>:
+     <html lang="nb" data-season="winter">
+   Gyldige verdier: winter | spring | summer | autumn
+
+   For å bytte sesong: endre data-season i index.html
+   (eller legg til ?sesong=summer i URL-en under utvikling).
+
+   Hver sesong definerer farger + bilder som CSS-variabler.
+   Undersider har ett toppbilde per sesong, f.eks.
+   <img class="hero-bg" data-only="summer" src="media/…">
+   Samme data-only-teknikk brukes for tekst, kort og arrangementer.
+   ========================================================= */
+
+:root,
+[data-season="winter"] {
+  --c-primary: #17304f;        /* dyp vinterblå */
+  --c-primary-soft: #2c4f7c;
+  --c-accent: #e0a458;         /* varm peisglød */
+  --c-accent-ink: #1b1b1b;
+  --c-bg: #f5f8fb;             /* frostlys */
+  --c-surface: #ffffff;
+  --c-tint: #e6eef6;           /* is-blå flate */
+  --c-ink: #1c2633;
+  --c-muted: #5b6878;
+  --hero-overlay: linear-gradient(180deg, rgba(10, 22, 40, .55) 0%, rgba(10, 22, 40, .15) 45%, rgba(10, 22, 40, .65) 100%);
+  --hero-image: url("../media/sco-03-optimized-25143433.jpg");
+  --feature-image: url("../media/bo-i-vradal.jpg");
+  --night-image: url("../media/nattbilde.jpg");
+  --cta-image: url("../media/start-booking.jpg");
+}
+
+[data-season="spring"] {
+  --c-primary: #2f4a3a;        /* granskog */
+  --c-primary-soft: #4d6e57;
+  --c-accent: #e8a3a0;         /* blomstring */
+  --c-accent-ink: #1b1b1b;
+  --c-bg: #f6f8f2;
+  --c-tint: #e7efe1;
+  --c-ink: #1f2a22;
+  --c-muted: #5e6b60;
+  --hero-overlay: linear-gradient(180deg, rgba(25, 40, 30, .45) 0%, rgba(25, 40, 30, .1) 45%, rgba(25, 40, 30, .6) 100%);
+  --hero-image: url("../media/var-frukttraer.jpg");
+  --night-image: url("../media/var-takterrasse.jpg");
+  --cta-image: url("../media/var-golf.jpg");
+}
+
+[data-season="summer"] {
+  --c-primary: #0f4c6e;        /* Vråvatn */
+  --c-primary-soft: #1f6f99;
+  --c-accent: #f2c14e;         /* midtsommersol */
+  --c-accent-ink: #1b1b1b;
+  --c-bg: #f7fafb;
+  --c-tint: #e2f0f5;
+  --c-ink: #142631;
+  --c-muted: #556773;
+  --hero-overlay: linear-gradient(180deg, rgba(8, 40, 60, .4) 0%, rgba(8, 40, 60, .05) 45%, rgba(8, 40, 60, .55) 100%);
+  --hero-image: url("../media/sommer-kajakk-luft.jpg");
+  --night-image: url("../media/sommer-takterrasse.jpg");
+  --cta-image: url("../media/sommer-strand.jpg");
+}
+
+[data-season="autumn"] {
+  --c-primary: #4a2c1f;        /* mørk lyng */
+  --c-primary-soft: #7a4630;
+  --c-accent: #d9822b;         /* høstløv */
+  --c-accent-ink: #1b1b1b;
+  --c-bg: #faf6f1;
+  --c-tint: #f2e6da;
+  --c-ink: #2a1f1a;
+  --c-muted: #6e6058;
+  --hero-overlay: linear-gradient(180deg, rgba(40, 22, 12, .5) 0%, rgba(40, 22, 12, .1) 45%, rgba(40, 22, 12, .65) 100%);
+  --hero-image: url("../media/host-vei.jpg");
+  --night-image: url("../media/host-utebad.jpg");
+  --cta-image: url("../media/host-topptur.jpg");
+}
+
+/* Sesongspesifikt innhold: elementer med data-only vises kun i nevnte sesong(er).
+   Bruk: <div data-only="winter">…</div> eller data-only="summer autumn" */
+[data-season="winter"] [data-only]:not([data-only~="winter"]),
+[data-season="spring"] [data-only]:not([data-only~="spring"]),
+[data-season="summer"] [data-only]:not([data-only~="summer"]),
+[data-season="autumn"] [data-only]:not([data-only~="autumn"]) { display: none !important; }
