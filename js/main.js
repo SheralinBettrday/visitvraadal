@@ -17,12 +17,7 @@
 
   const logo = (cls = '') => `
     <a class="logo ${cls}" href="index.html" aria-label="Visit Vrådal – forsiden">
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="29" cy="10" r="2.2" fill="currentColor"/>
-        <path d="M3 33 L15 15 L21 23 L26 17 L37 33 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-        <path d="M11.5 20.3 L15 15 L18.2 19.3" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-      </svg>
-      <span><span class="logo-visit">Visit</span>Vrådal<small>Telemark · Norge</small></span>
+      <span class="logo-mark" role="img" aria-label="Visit Vrådal"></span>
     </a>`;
 
   const menu = [
