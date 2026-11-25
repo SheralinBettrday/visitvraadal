@@ -40,8 +40,12 @@ p { margin: 0 0 1em; }
 .site-header.is-solid { background: var(--c-surface); color: var(--c-ink); box-shadow: 0 2px 20px rgba(0,0,0,.08); }
 .nav { display: flex; align-items: center; gap: 28px; height: 78px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Fraunces", serif; font-size: 1.45rem; font-weight: 600; letter-spacing: -.01em; }
-.logo svg { width: 34px; height: 34px; }
-.logo small { display: block; font-family: "Inter", sans-serif; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; opacity: .8; margin-top: -4px; }
+/* Logo: PNG brukt som maske, så fargen følger tekstfargen (hvit over hero, mørk på hvit header) */
+.logo-mark { display: block; height: 60px; aspect-ratio: 600 / 460; background: currentColor;
+  -webkit-mask: url("../media/logo-visitvraadal.png") center / contain no-repeat;
+          mask: url("../media/logo-visitvraadal.png") center / contain no-repeat;
+  transition: height .3s; }
+.site-header.is-solid .logo-mark { height: 54px; }
 .menu { display: flex; gap: 4px; list-style: none; margin: 0 0 0 auto; padding: 0; }
 .menu > li { position: relative; }
 .menu > li > a { display: block; padding: 10px 14px; text-decoration: none; font-weight: 500; font-size: .95rem; border-radius: 8px; }
@@ -278,6 +282,5 @@ p { margin: 0 0 1em; }
   .event-row { grid-template-columns: 76px 1fr; gap: 16px; }
 }
 
-/* Logo: "Visit" lidt lettere enn "Vrådal" */
-.logo-visit { font-weight: 500; opacity: .85; }
-@media (max-width: 380px) { .logo { font-size: 1.25rem; } }
+.site-footer .logo-mark { height: 104px; margin-bottom: 8px; }
+@media (max-width: 600px) { .logo-mark, .site-header.is-solid .logo-mark { height: 50px; } }
